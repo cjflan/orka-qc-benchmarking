@@ -32,17 +32,10 @@ build {
   ]
    provisioner "shell" {
     inline = [
-        // The base image this script builds on top of needs to have brew and Xcode installed and the 'admin' user in the sudoers file
+      // The base image this script builds on top of needs to have brew and Xcode installed and the 'admin' user in the sudoers file
       "brew update",
       "brew upgrade",
-      "brew install python",
-      "brew install bazelisk",
-      "bazelisk",
-      "brew install openjdk@11",
-      "sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk",
-      "$(which python3) -m pip install -U pip numpy wheel packaging requests opt_einsum",
-      "$(which python3) -m pip install -U keras_preprocessing --no-deps",
-      "touch .we-ran-packer-successfully"
+      "brew install cmake"
     ]
   }
 }
